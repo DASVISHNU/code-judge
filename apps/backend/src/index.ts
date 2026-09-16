@@ -5,10 +5,14 @@ import { prisma } from "db";
 import authRoutes from "./routes/auth.route.ts";
 import submissionRoutes from "./routes/submission.routes.ts";
 
-const app = express();
-app.use(cors());
-app.use(express.json());
 
+
+const app = express();
+
+app.use(express.json());
+app.use(cors({
+  origin: "*",
+}));
 app.use("/auth", authRoutes);
 app.use("/submission", submissionRoutes);
 
